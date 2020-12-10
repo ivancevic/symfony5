@@ -12,7 +12,7 @@ class QuestionController extends AbstractController
      * @Route("/") 
      */
     public function homepage() {
-        return new Response('Ovo je prva home stranica...');
+        return $this->render('question/homepage.html.twig');
     }
     
     /**
@@ -25,6 +25,9 @@ class QuestionController extends AbstractController
             'Odgovor dva na nesto sto je bezveze',
             'Odgovor tri ne znam ni sta ce mi',
         ];
+        
+        dump($slug, $this);
+        
         return $this->render('question/show.html.twig', [
             'question' => ucwords(str_replace('-', ' ', $slug)),
             'answers' => $answers,
