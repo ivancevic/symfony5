@@ -3,9 +3,10 @@ namespace App\Controller;
 
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 
-class QuestionController
+class QuestionController extends AbstractController
 {
     /**
      * @Route("/") 
@@ -18,9 +19,16 @@ class QuestionController
      * @Route("/questions/{slug}")
      */
     public function show($slug) {
-        return new Response(
-            ucwords(str_replace('-', ' ', $slug)
-        ));
+        
+        $answers = [
+            'Odgoro prvi na nesto sto nema odgovora',
+            'Odgovor dva na nesto sto je bezveze',
+            'Odgovor tri ne znam ni sta ce mi',
+        ];
+        return $this->render('question/show.html.twig', [
+            'question' => ucwords(str_replace('-', ' ', $slug)),
+            'answers' => $answers,
+        ]);
     }
 }
 
