@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Table{% endblock %}
+
+{% block body %}
+<div class="container">
+    <table class="table js-tables">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+      <th scope="col">Handle</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td class="first">Mark</td>
+      <td class="last">Otto</td>
+      <td class="handle">@mdo</td>
+      <td><a class="btn btn-outline-primary" href="#" role="button">Save</a></td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td class="first">Jacob</td>
+      <td class="last">Thornton</td>
+      <td class="handle">@fat</td>
+      <td><a class="btn btn-outline-primary" href="#" role="button">Save</a></td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td class="first">Larry</td>
+      <td class="last">Bird</td>
+      <td class="handle">@twitter</td>
+      <td><a class="btn btn-outline-primary" href="#" role="button">Save</a></td>
+    </tr>
+   
+  </tbody>
+</table>
+</div>
+{% endblock %}
+
+{% block javascripts %}
+	{{ parent() }}
+	 
+	<script src="{{ asset('js/table_save.js') }}"></script>
+{% endblock %}
